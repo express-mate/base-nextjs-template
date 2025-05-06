@@ -3,6 +3,7 @@
 🟢 -> Local Files
 
 ### / Root Folder Structure
+
 - /src
   - /app 🔴
   - /components 🔵
@@ -14,8 +15,8 @@
   - /api 🔵
   - /features🟢
 
-
 ### /features Folder Structure
+
 - /features
   - /feature1 🟢
     ... Base Feature Folder Structure
@@ -24,7 +25,8 @@
   - ...etc
 
 ### Basee Feature Folder Structure
-   - /components 🟢
-   - /lib 🟢
-   - /utils 🟢
-   - /api 🟢
+
+- /components 🟢
+- /lib 🟢
+- /utils 🟢
+- /api 🟢

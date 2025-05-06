@@ -1,6 +1,6 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,68 +11,68 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.config({
-    extends: ["next/core-web-vitals", "next/typescript"],
-    plugins: ["boundaries"],
+    extends: ['next/core-web-vitals', 'next/typescript'],
+    plugins: ['boundaries'],
     settings: {
-      "boundaries/include": ["src/**/*"],
-      "boundaries/elements": [
+      'boundaries/include': ['src/**/*'],
+      'boundaries/elements': [
         {
-          mode: "full",
-          type: "shared",
+          mode: 'full',
+          type: 'shared',
           pattern: [
-            "src/components/**/*",
-            "src/data/**/*",
-            "src/drizzle/**/*",
-            "src/hooks/**/*",
-            "src/lib/**/*",
-            "src/server/**/*",
+            'src/components/**/*',
+            'src/data/**/*',
+            'src/drizzle/**/*',
+            'src/hooks/**/*',
+            'src/lib/**/*',
+            'src/server/**/*',
           ],
         },
         {
-          mode: "full",
-          type: "feature",
-          capture: ["featureName"],
-          pattern: ["src/features/*/**/*"],
+          mode: 'full',
+          type: 'feature',
+          capture: ['featureName'],
+          pattern: ['src/features/*/**/*'],
         },
         {
-          mode: "full",
-          type: "app",
-          capture: ["_", "fileName"],
-          pattern: ["src/app/**/*"],
+          mode: 'full',
+          type: 'app',
+          capture: ['_', 'fileName'],
+          pattern: ['src/app/**/*'],
         },
         {
-          mode: "full",
-          type: "neverImport",
-          pattern: ["src/*", "src/tasks/**/*"],
+          mode: 'full',
+          type: 'neverImport',
+          pattern: ['src/*', 'src/tasks/**/*'],
         },
       ],
     },
     rules: {
-      "boundaries/no-unknown": ["error"],
-      "boundaries/no-unknown-files": ["error"],
-      "boundaries/element-types": [
-        "error",
+      'boundaries/no-unknown': ['error'],
+      'boundaries/no-unknown-files': ['error'],
+      'boundaries/element-types': [
+        'error',
         {
-          default: "disallow",
+          default: 'disallow',
           rules: [
             {
-              from: ["shared"],
-              allow: ["shared"],
+              from: ['shared'],
+              allow: ['shared'],
             },
             {
-              from: ["feature"],
+              from: ['feature'],
               allow: [
-                "shared",
-                ["feature", { featureName: "${from.featureName}" }],
+                'shared',
+                ['feature', { featureName: '${from.featureName}' }],
               ],
             },
             {
-              from: ["app", "neverImport"],
-              allow: ["shared", "feature"],
+              from: ['app', 'neverImport'],
+              allow: ['shared', 'feature'],
             },
             {
-              from: ["app"],
-              allow: [["app", { fileName: "*.css" }]],
+              from: ['app'],
+              allow: [['app', { fileName: '*.css' }]],
             },
           ],
         },
